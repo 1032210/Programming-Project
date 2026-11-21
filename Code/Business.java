@@ -1,8 +1,17 @@
 /*
  * Name: Business
- * Description:
+ * Description: This program tracks the respective names, cities, 
+ and number of employees for many different businesses across Ontario.
  * Created by: Hamna
  * Last edited: 11-20-2026
+ */
+
+/**
+ * A business in Ontario. Every business has a name, a city, and a number of
+ * employees. HairSalon, ConvenienceStore, and ProfessionalService extend it
+ * with details of their own.
+ *
+ * @Hamna
  */
 
 public class Business {
@@ -11,6 +20,15 @@ public class Business {
 private String name;
 private String city;
 private int employees;
+
+/**
+* Creates a business. A number of employees below 1 is ignored,
+* and the count stays at 0.
+*
+* @param name the name of the business
+* @param city the city the business is in
+* @param employees the number of people who work there
+*/
 
 // contructors
 public Business(String name, String city, int employees) {

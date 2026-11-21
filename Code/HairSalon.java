@@ -1,3 +1,17 @@
+/*
+ * Name:        HairSalon.java
+ * Description: Child of Business. Adds chairs and salon-only methods.
+ * Created by:  Hamna
+ * Last edited: 2026-11-20
+ */
+
+/**
+ * A hair salon. It is a Business, so it has a name, a city and employees,
+ * and it also has a number of chairs.
+ *
+ * @Hamna
+ */
+
 // HairSalon is the child class for Business which is the parent class
 public class HairSalon extends Business {
     private int chairs;   // extra attribute that only this child class has
