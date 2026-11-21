@@ -1,48 +1,71 @@
 /*
  * Name:        HairSalon.java
- * Description: Child of Business. Adds chairs and salon-only methods.
+ * Description: Child class of Business. Adds chairs and salon-only methods.
  * Created by:  Hamna
- * Last edited: 2026-11-20
+ * Last edited: 11-20-2026
  */
 
 /**
- * A hair salon. It is a Business, so it has a name, a city and employees,
- * and it also has a number of chairs.
+ * A hair salon. It is a Business and has a name, a city and employees, and it 
+ * also has a number of chairs.
  *
  * @Hamna
  */
-
-// HairSalon is the child class for Business which is the parent class
 public class HairSalon extends Business {
-    private int chairs;   // extra attribute that only this child class has
 
-    // constructor: super sends the shared data to the parent class Business
+    // an extra attribute ONLY for this child class
+    private int chairs;
+
+    /**
+     * Creates a hair salon with one chair for each employee.
+     * A number of employees below 1 is ignored.
+     *
+     * @param name the name of the salon
+     * @param city the city the salon is in
+     * @param employees the number of people who work there
+     */
     public HairSalon(String name, String city, int employees) {
         // super sends the data up to the Business constructor
         super(name, city, employees);
         chairs = getEmployees();
     }
 
-    // getter for the extra attribute
+    /**
+     * Returns the number of chairs in this salon.
+     *
+     * @return the number of chairs
+     */
     public int getChairs() {
         return chairs;
     }
 
-    // setter: changes chairs (the extra attribute), ONLY if it is at least 1
+    /**
+     * Changes the number of chairs in this salon. A number below 1 is ignored.
+     *
+     * @param chairs the new number of chairs
+     */
     public void setChairs(int chairs) {
         if (chairs >= 1) {
             this.chairs = chairs;
         }
     }
 
+    /**
+     * Returns what kind of business this is.
+     *
+     * @return "Hair Salon"
+     */
     @Override
-    // replaces the parent version
     public String getType() {
         return "Hair Salon";
     }
 
+    /**
+     * Returns a label for how big this salon is.
+     *
+     * @return "Small salon" for fewer than 5 employees, otherwise "Large salon"
+     */
     @Override
-    // replaces the parent version: small or large salon
     public String getSizeLabel() {
         if (getEmployees() < 5) {
             return "Small salon";
@@ -51,13 +74,21 @@ public class HairSalon extends Business {
         }
     }
 
-    // how many full pairs of stylists (integer division)
+    /**
+     * Returns how many full pairs of stylists work here.
+     *
+     * @return the number of pairs
+     */
     public int getStylistPairs() {
         return getEmployees() / 2;   // integer division
     }
 
-    // how many stylists are left over (modulo)
+    // /**
+     * Returns how many stylists are left over without a partner.
+     *
+     * @return 1 if the number of employees is odd, otherwise 0
+     */
     public int getLeftover() {
-        return getEmployees() % 2;   // modulo (the remainder)
+        return getEmployees() % 2;  // modulo
     }
 }

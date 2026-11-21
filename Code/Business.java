@@ -1,5 +1,5 @@
 /*
- * Name: Business
+ * Name: Business.java
  * Description: This program tracks the respective names, cities, 
  and number of employees for many different businesses across Ontario.
  * Created by: Hamna
@@ -29,61 +29,98 @@ private int employees;
 * @param city the city the business is in
 * @param employees the number of people who work there
 */
-
-// contructors
 public Business(String name, String city, int employees) {
     this.name = name;
     this.city = city;
     setEmployees(employees);
 }
 
-// getter: this will let the child classes read the name
+/**
+     * Returns this business's name.
+     *
+     * @return the name
+     */
 public String getName() {
     return name;
 }
 
-// getter: this will let the child classes read the city
+/**
+     * Returns the city this business is in.
+     *
+     * @return the city
+     */
 public String getCity() {
     return city;
 }
 
-// getter: this will let the child class read the employee count
+/**
+     * Returns the number of people who work at this business.
+     *
+     * @return the number of employees
+     */
 public int getEmployees() {
     return employees;
 }
 
-// setter: changes the name, ONLY if it isn't empty
+/**
+     * Changes this business's name. A null or empty name is ignored.
+     *
+     * @param name the new name
+     */
 public void setName(String name) {
     if (name != null && !name.isEmpty()) {
         this.name = name;
     }
 }
 
-// setter: changes the city, ONLY if it isn't empty
+/**
+     * Changes the city this business is in. A null or empty city is ignored.
+     *
+     * @param city the new city
+     */
 public void setCity(String city) {
     if (city != null && !city.isEmpty()) {
         this.city = city;
     }
 }
 
-// setter: changes the employee count, only if it isn't empty
+/**
+     * Changes the number of people who work at this business.
+     * A number below 1 is ignored.
+     *
+     * @param employees the new number of employees
+     */
 public void setEmployees(int employees) {
     if (employees >= 1) {
         this.employees = employees;
     }
 }
 
-// the child classes can replace this
+/**
+     * Returns what kind of business this is. Child classes can replace this
+     * with their own answer.
+     *
+     * @return the type of business
+     */
     public String getType() {
         return "Business";
 }
 
-    // the child classes replace this 
+/**
+     * Returns a label for how big this business is. Child classes can replace
+     * this with their own answer.
+     *
+     * @return a size label
+     */
     public String getSizeLabel() {
         return "Business";
 }
 
-    // turns the business into a line of text for printing
+/**
+     * Returns this business as a line of text.
+     *
+     * @return the name, city and number of employees
+     */
     public String toString() {
         return name + " in " + city + " (" + employees + " employees)";
     }
